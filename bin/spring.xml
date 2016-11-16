@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN"
+ "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+ -->
+ <beans xmlns        ="http://www.springframework.org/schema/beans"
+        xmlns:xsi    ="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:util   ="http://www.springframework.org/schema/util"
+        xmlns:context="http://www.springframework.org/schema/context"
+        xsi:schemaLocation="
+                 http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+                 http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd">
+<!-- 
+<bean id="parentCember" class="spring.app.Triangle">
+      <property name="points">
+        <list>
+        	<ref bean="nokta1"/>
+        </list>
+     </property>
+ </bean>
+ <bean id="parentCember1" class="spring.app.Triangle" parent="parentCember">
+      <property name="points">
+        <list  merge="true">
+        	<ref bean="nokta2"/>
+        </list>
+     </property>
+ </bean>
+
+  <bean id="parentCember2" class="spring.app.Triangle" parent="parentCember">
+      <property name="points">
+        <list merge="true">
+            <ref bean="nokta3"/>
+        </list>
+     </property>
+ </bean>
+ -->
+  
+   <bean id="nokta1" class="spring.app.Point">
+    <qualifier value="circleRelated"/>
+     <property name="x" value="11"       />
+     <property name="y" value="12"      />
+     <property name="ad" value="Nokta1" />
+  </bean>
+  
+ <bean id="nokta2" class="spring.app.Point">
+     <property name="x" value="21"       />
+     <property name="y" value="22"      />
+     <property name="ad" value="Nokta2" />
+  </bean>
+  
+  <bean id="nokta3" class="spring.app.Point">
+    <property name="x" value="31"       />
+     <property name="y" value="32"      />
+     <property name="ad" value="Nokta3" />
+  </bean>
+
+   <bean id="circle" class="spring.app.Circle">
+    <property name="center" ref="nokta1"       />
+  </bean>
+  
+   <!--
+   <bean  class="org.springframework.beans.factory.annotation.RequiredAnnotationBeanPostProcessor">
+  </bean>
+  
+   <bean  class="spring.app.DisplayBeanNamePostProcessor">
+  </bean>
+  -->
+</beans>
